@@ -1,0 +1,26 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.carhaix/oi",
+  "title": "Oi",
+  "description": "Access your Oi setup: teams, contexts, workflows, tools, and more.",
+  "repository": {
+    "url": "https://github.com/carhaix/oi-mcp",
+    "source": "github"
+  },
+  "websiteUrl": "https://www.oioioi.ai/guides/what-is-oi-mcp",
+  "version": "0.2.0",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://api.oioioi.ai/mcp",
+      "headers": [
+        {
+          "name": "Authorization",
+          "description": "Bearer token for Oi access. Use an OAuth access token or an exported Oi organization API key.",
+          "isRequired": true,
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}

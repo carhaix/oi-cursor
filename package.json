@@ -1,0 +1,27 @@
+{
+  "name": "oi-mcp",
+  "version": "0.2.0",
+  "mcpName": "io.github.carhaix/oi",
+  "description": "Registry metadata for the Oi MCP server.",
+  "license": "MIT",
+  "private": true,
+  "files": [
+    "server.json",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/carhaix/oi-mcp.git"
+  },
+  "homepage": "https://github.com/carhaix/oi-mcp",
+  "bugs": {
+    "url": "https://github.com/carhaix/oi-mcp/issues"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "oi",
+    "oauth",
+    "hosted-server"
+  ]
+}
