@@ -49,5 +49,5 @@ Oi entries in Cursor's MCP settings.
 Next:
 1. Restart Cursor.
 2. Complete the Oi sign-in flow if Cursor prompts you.
-3. Try /list-contexts or: use Oi list the available Contexts.
+3. Try /list-contexts, /list-workflows, /recommend, or: use Oi list the available Contexts.
 MSG
