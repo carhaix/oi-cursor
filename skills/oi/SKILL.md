@@ -12,6 +12,8 @@ description: Use Oi to load Contexts and Workflows from the connected MCP server
 - When the user names an Oi Workflow or asks for a multi-step workflow
 - When the user wants Oi Context or Workflow context loaded into the current thread
 - When the user wants to list available Contexts or Workflows before choosing one
+- When an Oi guardrail response asks for confirmation before continuing
+- When an Oi tool result returns a usage event and Cursor has runtime/token usage to report
 
 ## Selector routing
 
@@ -33,3 +35,19 @@ description: Use Oi to load Contexts and Workflows from the connected MCP server
 7. If the user wants a sticky Context or Workflow for the current thread, call `oi_contexts_start_session` or `oi_workflows_start_session` using the routed selector.
 8. Only use `oi_recommend` when the user does not know which Context or Workflow to use or the provided selector cannot be resolved. It considers both Contexts and Workflows.
 9. Prefer Oi MCP operations over treating the request as plain English when the user clearly intends to use Oi.
+10. If an Oi response returns a guardrail confirmation request, call `oi_guardrails_confirm` when the user clearly approves continuing. Use the provided `requestId`; set `remember` only when the user says not to ask again.
+11. If an Oi response returns `usageEventId`, call `oi_usage_report` after the run when Cursor has runtime/token accounting. Pass `usageEventId` as authoritative, include `contextId` or `workflowId` only for clarity, and never store or resend prompt text.
+
+## Guardrails
+
+- Guardrail confirmation is agnostic to Contexts and Workflows. Use `oi_guardrails_confirm` with the `requestId` returned by Oi.
+- A plain `yes`, `continue`, or equivalent user approval means continue once.
+- Phrases like `yes and don't ask again`, `remember this`, or `always allow this Context` mean set `remember: true`.
+- Do not invent a `requestId`; if it is missing, ask the user to rerun the blocked Oi request.
+
+## Usage reporting
+
+- Usage reporting is agnostic to Contexts and Workflows. Use `oi_usage_report` for both.
+- Prefer `usageEventId` from the prior Oi tool response. Optional `contextId` or `workflowId` are secondary hints.
+- Report only metadata and token counts Cursor actually knows, such as `runtime`, `provider`, `model`, `status`, `latencyMs`, `inputTokens`, `cachedInputTokens`, `cacheWriteInputTokens`, `outputTokens`, `reasoningTokens`, `compressionInputTokens`, and `compressionOutputTokens`.
+- If Cursor has no runtime/token accounting, skip usage reporting instead of guessing.

@@ -1,43 +1,30 @@
 {
   "name": "oi",
+  "displayName": "Oi",
   "version": "0.1.0",
-  "description": "Use your team's Contexts and Workflows through the Oi MCP server.",
+  "description": "Use your team's Oi Contexts and Workflows through the hosted Oi MCP server.",
   "author": {
     "name": "Oi",
-    "email": "support@oioioi.ai",
-    "url": "https://oioioi.ai"
+    "email": "support@oioioi.ai"
   },
+  "publisher": "Oi",
   "homepage": "https://oioioi.ai",
   "repository": "https://github.com/carhaix/oi-cursor",
   "license": "UNLICENSED",
+  "logo": "assets/logo.png",
   "keywords": [
     "cursor",
     "mcp",
     "contexts",
     "backlog",
     "design",
+    "workflows",
+    "guardrails",
     "productivity"
   ],
-  "logo": "assets/logo.png",
+  "category": "productivity",
+  "tags": ["mcp", "contexts", "workflows", "guardrails"],
   "skills": "./skills/",
   "commands": "./commands/",
-  "mcpServers": "./mcp.json",
-  "interface": {
-    "displayName": "Oi",
-    "shortDescription": "Contextify product execution across code, backlog, and design.",
-    "longDescription": "Connect Oi in Cursor so teams can load Contexts and Workflows into a thread, inspect setup readiness, and route one-shot work through product-aware MCP tools. Oi uses the hosted MCP endpoint with Cursor's OAuth flow, and supports oi and use Oi as invocation forms.",
-    "developerName": "Oi",
-    "category": "Productivity",
-    "capabilities": ["Interactive", "MCP", "Contexts", "Workflows"],
-    "websiteURL": "https://oioioi.ai",
-    "privacyPolicyURL": "https://www.oioioi.ai/privacy",
-    "termsOfServiceURL": "https://www.oioioi.ai/terms",
-    "defaultPrompt": [
-      "oi list the available Contexts.",
-      "use Oi designer to review this flow.",
-      "use Oi to recommend the best setup for this feature plan."
-    ],
-    "brandColor": "#8B5CF6",
-    "screenshots": []
-  }
+  "mcpServers": "./mcp.json"
 }

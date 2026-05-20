@@ -1,0 +1,17 @@
+{
+  "name": "oi",
+  "owner": {
+    "name": "Oi",
+    "email": "support@oioioi.ai"
+  },
+  "metadata": {
+    "description": "Oi Cursor plugin marketplace for Contexts, Workflows, guardrails, and hosted MCP access."
+  },
+  "plugins": [
+    {
+      "name": "oi",
+      "source": ".",
+      "description": "Use your team's Oi Contexts and Workflows through the hosted Oi MCP server."
+    }
+  ]
+}
